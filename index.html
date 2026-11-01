@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#102b25" />
+        <title>岭南麻将 · 广东麻将</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main class="app-shell">
+            <section class="game-layout">
+                <div class="table-column">
+                    <section class="game-table" aria-label="麻将牌桌">
+                        <div class="table-glow"></div>
+                        <div class="seat seat-top" id="seat-2"></div>
+                        <div class="seat seat-left" id="seat-1"></div>
+                        <div class="seat seat-right" id="seat-3"></div>
+                        <div class="center-board">
+                            <div class="round-label">
+                                <span class="round-dot"></span> 南风局
+                                <span class="round-divider">·</span> 第
+                                <b id="roundNumber">1</b> 局
+                            </div>
+                            <div class="wall-counter">
+                                <span class="wall-icon">▥</span
+                                ><span id="wallCount">84</span><small>剩余牌</small>
+                            </div>
+                            <div
+                                class="discard-area"
+                                id="discardArea"
+                                aria-label="最近打出的牌"
+                            ></div>
+                            <div class="table-message" id="tableMessage">
+                                牌局准备开始
+                            </div>
+                            <div class="winner-reveal" id="winnerReveal" hidden></div>
+                            <div class="claim-actions" id="claimActions" hidden></div>
+                        </div>
+                        <div class="table-brand">岭南 · 好手气</div>
+                    </section>
+
+                    <section class="player-panel">
+                        <div class="player-info">
+                            <div class="avatar you-avatar">你</div>
+                            <div class="player-name">
+                                <strong>你 <span class="you-tag">我</span></strong
+                                ><small
+                                    >南家 · <span id="playerStatus">等待摸牌</span></small
+                                >
+                            </div>
+                            <div class="ready-panel" id="readyPanel" hidden></div>
+                            <div class="rule-select-wrap">
+                                <label for="ruleSelect">玩法规则</label>
+                                <select id="ruleSelect" aria-label="选择麻将规则">
+                                    <option value="guangdong">广东麻将</option>
+                                    <option value="ghost">广东鬼牌麻将</option>
+                                </select>
+                                <small id="ruleDescription">标准广东推倒胡</small>
+                            </div>
+                            <div class="score">
+                                <small>本局得分</small><strong id="playerScore">0</strong>
+                            </div>
+                        </div>
+                        <div class="hand-area">
+                            <div class="hand-meta">
+                                <span>我的手牌 <b id="handCount">13</b></span
+                                ><span class="sort-hint">方向键选牌 · 空格出牌</span>
+                            </div>
+                            <div class="meld-area" id="playerMelds"></div>
+                            <div class="hand" id="playerHand" aria-label="你的手牌"></div>
+                        </div>
+                        <div class="control-row">
+                            <span class="secondary-button round-status" id="roundStatus"
+                                >牌局进行中</span
+                            >
+                            <div class="turn-hint" id="turnHint">
+                                双击一张手牌即可打出
+                            </div>
+                            <button class="next-round-button" id="nextRoundButton" hidden>
+                                <span>↻</span> 开启下一局 <kbd>P</kbd>
+                            </button>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="side-panel">
+                    <section class="side-card history-card">
+                        <div class="history-heading">
+                            <h2>牌局动态</h2>
+                            <span class="live-dot">实时</span>
+                        </div>
+                        <div
+                            class="history-list"
+                            id="historyList"
+                            aria-live="polite"
+                        ></div>
+                    </section>
+                    <div class="footer-note">一城一味，岭南牌趣 <span>♥</span></div>
+                </aside>
+            </section>
+        </main>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        <div class="win-celebration" id="winCelebration" aria-hidden="true">
+            <div class="win-confetti" id="winConfetti"></div>
+            <div class="win-message">
+                <span class="win-crown">♛</span>
+                <strong id="winTitle">大胡！</strong>
+                <span id="winSubtitle">好手气，漂亮胡牌！</span>
+            </div>
+        </div>
+        <script src="game.js"></script>
+    </body>
+</html>
