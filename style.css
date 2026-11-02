@@ -567,6 +567,22 @@ body {
     font-style: normal;
     font-size: 9px;
 }
+.ready-panel .ready-laizi-waits {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: #e4b7a4;
+    font-size: 8px;
+    white-space: nowrap;
+}
+.ready-panel .ready-laizi-waits span {
+    display: inline-flex;
+    gap: 2px;
+}
+.ready-panel .ready-laizi-waits em {
+    color: #edd9a7;
+    font-style: normal;
+}
 .ready-panel .ready-patterns {
     display: flex;
     align-items: center;
@@ -1355,8 +1371,7 @@ body {
 .tile.suit-tong .tile-unicode {
     color: #276b9a;
 }
-.tile.suit-feng .tile-unicode,
-.tile.suit-ghost .tile-unicode {
+.tile.suit-feng .tile-unicode {
     color: #253a32;
 }
 .tile.mini {
@@ -1546,14 +1561,6 @@ body {
     font-size: 10px;
     white-space: normal;
     line-height: 1.35;
-}
-.tile.suit-ghost .tile-number {
-    color: #7c42b5;
-    font-size: 19px;
-    letter-spacing: -1px;
-}
-.tile.mini.suit-ghost .tile-number {
-    font-size: 13px;
 }
 @media (max-width: 760px) {
     .player-info {
@@ -2259,6 +2266,60 @@ body {
     .river-owner {
         font-size: 14px;
         line-height: 18px;
+    }
+}
+.tile-laizi-ribbon {
+    position: absolute;
+    z-index: 1;
+    top: 2px;
+    left: 2px;
+    width: 15px;
+    height: 15px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(90deg, #a92c24, #d74b39 55%, #a92c24);
+    border: 1px solid #fff4d2;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px #0006;
+    color: #fff8e9;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 8px;
+    font-weight: 800;
+    line-height: 1;
+    pointer-events: none;
+}
+.tile.mini .tile-laizi-ribbon {
+    top: 1px;
+    left: 1px;
+    width: 11px;
+    height: 11px;
+    font-size: 6px;
+}
+.player-info > .ready-panel.laizi-ready-panel {
+    height: 176px;
+    min-height: 176px;
+    max-height: 176px;
+}
+.seat-top .seat-action-bubble {
+    position: relative;
+    top: auto;
+    left: auto;
+    min-width: 0;
+    padding: 5px 8px;
+    font-size: 11px;
+    line-height: 1.2;
+    transform: none;
+    animation: none;
+    white-space: nowrap;
+}
+.seat-top .seat-action-bubble:after {
+    display: none;
+}
+@media (max-width: 760px) {
+    .player-info > .ready-panel.laizi-ready-panel {
+        height: 190px;
+        min-height: 190px;
+        max-height: 190px;
     }
 }
 @media (min-width: 761px) and (max-height: 699px) {
